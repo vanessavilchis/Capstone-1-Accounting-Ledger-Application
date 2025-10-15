@@ -9,11 +9,15 @@ import java.util.Scanner;
 
 public class AccountingLedgerApp {
     public static void main(String[] args) {
-        System.out.println("===============");
-        System.out.println("    Welcome    ");
-        System.out.println("===============");
+        System.out.println("====================================");
+        System.out.println("    Welcome to Ledger Application    ");
+        System.out.println("=====================================");
 
         while (true){
+            displayMenu();
+            HashMap<String, Account> userAccount = loadTransactions();
+            char userInput = keyboard.nextLine().toLowerCase().trim().charAt(0);
+        }
             mainMenu();
             menuSelector();
         }
@@ -135,7 +139,7 @@ public class AccountingLedgerApp {
                     buffWriter.newLine();
                     buffWriter.write(String.format("%tF|%tT|%s|%s|%.2f", date, time, description,vendor, amount));
                     buffWriter.close();
-                    System.out.print("----\nLedger Updated!\nRecord another deposit?\n[Y]Yes [N]No\nType Here: ");
+                    System.out.print("----\nLedger Updated!\nRecord another deposit?\n[Y]es [N]o\nType Here: ");
                     String anotherChoice = scanner.nextLine().trim().toUpperCase();
                     if(anotherChoice.startsWith("N")){
                         keepGoing = false;
@@ -146,7 +150,7 @@ public class AccountingLedgerApp {
 
             }
             System.out.println("\n----");
-            System.out.println("Press [ENTER] to continue..");
+            System.out.println("Press enter to continue..");
             scanner.nextLine();
 
 

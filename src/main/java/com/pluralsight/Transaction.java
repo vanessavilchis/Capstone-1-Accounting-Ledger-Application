@@ -3,12 +3,14 @@ package com.pluralsight;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+// info needed
 public class Transaction {
     private LocalDate date;
     private LocalTime time;
     private String description,vendor;
     private double amount;
 
+// My constructors
     public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
         this.date = date;
         this.time = time;
@@ -16,7 +18,7 @@ public class Transaction {
         this.vendor = vendor;
         this.amount = amount;
     }
-
+    // My getters and Setters
     public LocalDate getDate() {
         return date;
     }
@@ -56,4 +58,9 @@ public class Transaction {
     public void setAmount(double amount) {
         this.amount = amount;
     }
+// Add to CSV file in formatted form
+public String toString(){
+    return String.format("%s|%s|%s|%s|%.2f", date, time, description, vendor, amount);
 }
+    }
+
